@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\Asus\Desktop\NJU\REVIEW\程序设计基础实验\Project1\Project1\main.cpp(143,20): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\Asus\Desktop\NJU\REVIEW\程序设计基础实验\Project1\Project1\main.cpp(241,20): warning C4018: “<”: 有符号/无符号不匹配
+  Project1.vcxproj -> C:\Users\Asus\Desktop\NJU\REVIEW\程序设计基础实验\Project1\Project1\Debug\Project1.exe

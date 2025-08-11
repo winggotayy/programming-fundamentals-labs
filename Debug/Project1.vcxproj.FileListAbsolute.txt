@@ -1,0 +1,4 @@
+C:\Users\Asus\Desktop\大二（下）\程序设计基础实验\Project1\Project1\Debug\Project1.exe
+C:\Users\Asus\Desktop\大二（下）\程序设计基础实验\Project1\Project1\Debug\Project1.pdb
+C:\Users\Asus\Desktop\NJU\REVIEW\程序设计基础实验\Project1\Project1\Debug\Project1.exe
+C:\Users\Asus\Desktop\NJU\REVIEW\程序设计基础实验\Project1\Project1\Debug\Project1.pdb
