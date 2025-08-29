@@ -8,14 +8,14 @@
 
 using namespace std;
 
-/* µØÌúĞÅÏ¢²éÑ¯ */
-// ÏßÂ·²éÑ¯
+/* åœ°é“ä¿¡æ¯æŸ¥è¯¢ */
+// çº¿è·¯æŸ¥è¯¢
 void Line_Inquiry(string line_check)
 {
-	ifstream infile("µØÌúĞÅÏ¢.txt");
+	ifstream infile("åœ°é“ä¿¡æ¯.txt");
 	if (!infile) 
 	{
-		cerr << "ÎŞ·¨´ò¿ª´ËÎÄ¼ş£¡" << endl;
+		cerr << "æ— æ³•æ‰“å¼€æ­¤æ–‡ä»¶ï¼" << endl;
 		exit(0);
 	}
 	
@@ -26,18 +26,18 @@ void Line_Inquiry(string line_check)
 		if (buffer == line_check) 
 		{
 			found = true;
-			cout << line_check << "µÄËùÓĞÕ¾µã£º" << endl;
+			cout << line_check << "çš„æ‰€æœ‰ç«™ç‚¹ï¼š" << endl;
 			continue;
 		}
 		if (found) 
 		{
-			istringstream iss(buffer);	// ½âÎöÎªµ¥´Ê£¨ÒÔ¿Õ¸ñ·Ö¸ô£©
+			istringstream iss(buffer);	// è§£æä¸ºå•è¯ï¼ˆä»¥ç©ºæ ¼åˆ†éš”ï¼‰
 			string station;
-			iss >> station; // ½«½âÎöµÄµ¥´Ê¶ÁÈ¡µ½ station ±äÁ¿ÖĞ
+			iss >> station; // å°†è§£æçš„å•è¯è¯»å–åˆ° station å˜é‡ä¸­
 			cout << station << endl;
 			if (buffer.empty()) 
 			{
-				break; // Óöµ½¿ÕĞĞÍ£Ö¹Êä³ö
+				break; // é‡åˆ°ç©ºè¡Œåœæ­¢è¾“å‡º
 			}
 		}
 	}
@@ -46,19 +46,19 @@ void Line_Inquiry(string line_check)
 
 	if (!found) 
 	{
-		cout << "´ËÏßÂ·²»´æÔÚ£¡" << endl;
+		cout << "æ­¤çº¿è·¯ä¸å­˜åœ¨ï¼" << endl;
 	}
 }
-// Õ¾µã²éÑ¯
+// ç«™ç‚¹æŸ¥è¯¢
 void Site_Inquiry()
 {
 	string site_check;
 	//cin >> site_check;
 
-	ifstream infile("µØÌúĞÅÏ¢1.txt");
+	ifstream infile("åœ°é“ä¿¡æ¯1.txt");
 	if (!infile)
 	{
-		cerr << "ÎŞ·¨´ò¿ª´ËÎÄ¼ş£¡" << endl;
+		cerr << "æ— æ³•æ‰“å¼€æ­¤æ–‡ä»¶ï¼" << endl;
 		exit(0);
 	}
 
@@ -67,7 +67,7 @@ void Site_Inquiry()
 	string lineName;
 	string site;
 
-	// ¶ÁÈ¡µØÌúĞÅÏ¢ÎÄ¼ş£¬¹¹½¨ÏßÂ·ĞÅÏ¢µÄÊı¾İ½á¹¹
+	// è¯»å–åœ°é“ä¿¡æ¯æ–‡ä»¶ï¼Œæ„å»ºçº¿è·¯ä¿¡æ¯çš„æ•°æ®ç»“æ„
 	while (getline(infile, lineName))
 	{
 		while (getline(infile, site) && !site.empty())
@@ -76,7 +76,7 @@ void Site_Inquiry()
 		}
 	}
 
-	// ²éÑ¯Õ¾µãËùÊôµÄÏßÂ·
+	// æŸ¥è¯¢ç«™ç‚¹æ‰€å±çš„çº¿è·¯
 	bool found = false;
 	bool found_exact = false;
 	set<string> stations;
@@ -84,7 +84,7 @@ void Site_Inquiry()
 	while (!found_exact) 
 	{
 		cin >> site_check;
-		cout << "Õ¾µãËùÊôµÄÏßÂ·:" << endl;
+		cout << "ç«™ç‚¹æ‰€å±çš„çº¿è·¯:" << endl;
 	 	found = false;
 		for (const auto& entry : line)
 		{
@@ -104,22 +104,22 @@ void Site_Inquiry()
 				}
 			}
 		}
-		// ×Ö·û´®×Ó´®Æ¥Åä£¨¹Ø¼ü´ÊËÑË÷£©
+		// å­—ç¬¦ä¸²å­ä¸²åŒ¹é…ï¼ˆå…³é”®è¯æœç´¢ï¼‰
 		if (found && !found_exact) 
 		{
 			cout << "\n";
 			cout << "--------------------------------" << endl;
-			cout << "Äú¿ÉÄÜÒªÑ¡ÔñµÄÕ¾µã£º" << endl;
+			cout << "æ‚¨å¯èƒ½è¦é€‰æ‹©çš„ç«™ç‚¹ï¼š" << endl;
 			for (const auto& station : stations) 
 			{
 				cout << station << endl;
 			}
-			cout << "ÇëÖØĞÂÊäÈë£º" << endl;
+			cout << "è¯·é‡æ–°è¾“å…¥ï¼š" << endl;
 			cout << "--------------------------------" << endl;
 		}
 		else if (!found && found_exact == false) 
 		{
-			cout << "´ËÕ¾µã²»´æÔÚ£¡" << endl;
+			cout << "æ­¤ç«™ç‚¹ä¸å­˜åœ¨ï¼" << endl;
 			return;
 		}
 	}
@@ -127,7 +127,7 @@ void Site_Inquiry()
 	infile.close();
 }
 
-/* µØÌúÆ±Îñ²éÑ¯ */
+/* åœ°é“ç¥¨åŠ¡æŸ¥è¯¢ */
 
 /*
 bool is_in_line(map<string, int>& stations, string station) 
@@ -136,7 +136,7 @@ bool is_in_line(map<string, int>& stations, string station)
 }
 */
 
-// ½«×Ö·û´®×ª»»ÎªÕûÊı
+// å°†å­—ç¬¦ä¸²è½¬æ¢ä¸ºæ•´æ•°
 int mystod(string s) 
 {
 	int result = 0;
@@ -147,23 +147,23 @@ int mystod(string s)
 	return result;
 }
 
-// ½«µØÌúÏßÂ·Ãû³Æ×ª»»Îª¶ÔÓ¦µÄ±àºÅ
+// å°†åœ°é“çº¿è·¯åç§°è½¬æ¢ä¸ºå¯¹åº”çš„ç¼–å·
 int linkedline(string subway) 
 {
-	if (subway == "1ºÅÏß") return 1;
-	else if (subway == "2ºÅÏß") return 2;
-	else if (subway == "3ºÅÏß") return 3;
-	else if (subway == "4ºÅÏß") return 4;
-	else if (subway == "10ºÅÏß") return 5;
-	else if (subway == "S1Ïß") return 6;
-	else if (subway == "S3Ïß") return 7;
-	else if (subway == "S7Ïß") return 8;
-	else if (subway == "S8Ïß") return 9;
-	else if (subway == "S9Ïß") return 10;
+	if (subway == "1å·çº¿") return 1;
+	else if (subway == "2å·çº¿") return 2;
+	else if (subway == "3å·çº¿") return 3;
+	else if (subway == "4å·çº¿") return 4;
+	else if (subway == "10å·çº¿") return 5;
+	else if (subway == "S1çº¿") return 6;
+	else if (subway == "S3çº¿") return 7;
+	else if (subway == "S7çº¿") return 8;
+	else if (subway == "S8çº¿") return 9;
+	else if (subway == "S9çº¿") return 10;
 	return 0;
 }
 
-// Æ±¼Û¼ÆËã
+// ç¥¨ä»·è®¡ç®—
 int Price(int dis)
 {
 	if (dis >= 0 && dis <= 10000)
@@ -191,16 +191,16 @@ int Price(int dis)
 #pragma warning (disable : 4996)
 int CalTicket(string begin, string end)
 {
-	ifstream infile("µØÌúĞÅÏ¢2.txt");
+	ifstream infile("åœ°é“ä¿¡æ¯2.txt");
 	if (!infile)
 	{
-		cerr << "ÎŞ·¨´ò¿ª´ËÎÄ¼ş£¡" << endl;
+		cerr << "æ— æ³•æ‰“å¼€æ­¤æ–‡ä»¶ï¼" << endl;
 		exit(0);
 	}
 
-	// Ã¿ÌõµØÌúÏßÉÏµÄÕ¾µãÊı
+	// æ¯æ¡åœ°é“çº¿ä¸Šçš„ç«™ç‚¹æ•°
 	int every_stations[11] = { 0, 27, 26, 29, 18, 14, 8, 19, 10, 17, 6 };
-	// ´æ´¢¸÷¸öµØÌúÏßÂ·µÄÕ¾µãºÍ¾àÀë
+	// å­˜å‚¨å„ä¸ªåœ°é“çº¿è·¯çš„ç«™ç‚¹å’Œè·ç¦»
 	vector<pair<string, int>> lines[11];
 	vector<tuple<int, int, int>> allLinesIncludeBegin2End; // 1st : line, 2nd : begin, 3rd : end
 
@@ -248,13 +248,13 @@ int CalTicket(string begin, string end)
 		if (dis > temp) dis = temp;
 	}
 	
-	cout << "\n¾àÀë£º" << dis << "Ã×" << endl;
+	cout << "\nè·ç¦»ï¼š" << dis << "ç±³" << endl;
 
 	int price = Price(dis);
 	return price;
 }
 
-// ×Ö·û´®×Ó´®Æ¥Åä£¨¹Ø¼ü´ÊËÑË÷£©
+// å­—ç¬¦ä¸²å­ä¸²åŒ¹é…ï¼ˆå…³é”®è¯æœç´¢ï¼‰
 unordered_set<string> findMatchingStrings(const string& substr, string filename)
 {
 	unordered_set<string> matches;
@@ -271,31 +271,31 @@ unordered_set<string> findMatchingStrings(const string& substr, string filename)
 	return matches;
 }
 
-// ÏßÂ·ËµÃ÷£¨Ö±´ï£©
+// çº¿è·¯è¯´æ˜ï¼ˆç›´è¾¾ï¼‰
 void Route_Straight()
 {
-	ifstream infile("µØÌúĞÅÏ¢1.txt");
+	ifstream infile("åœ°é“ä¿¡æ¯1.txt");
 	if (!infile)
 	{
-		cerr << "ÎŞ·¨´ò¿ª´ËÎÄ¼ş£¡" << endl;
+		cerr << "æ— æ³•æ‰“å¼€æ­¤æ–‡ä»¶ï¼" << endl;
 		exit(0);
 	}
 
 	string begin, end;
 	
-	// ÊäÈëÆğµã
-	cout << "ÇëÊäÈëÆğµãÕ¾£º";
+	// è¾“å…¥èµ·ç‚¹
+	cout << "è¯·è¾“å…¥èµ·ç‚¹ç«™ï¼š";
 	cin >> begin;
 	
-	// ×Ó´®Æ¥Åä
-	unordered_set<string> match_begin = findMatchingStrings(begin, "µØÌúĞÅÏ¢1.txt");
+	// å­ä¸²åŒ¹é…
+	unordered_set<string> match_begin = findMatchingStrings(begin, "åœ°é“ä¿¡æ¯1.txt");
 	if (match_begin.empty())
 	{
-		cout << "Ã»ÓĞÕÒµ½Æ¥ÅäµÄÕ¾µã¡£" << endl;
+		cout << "æ²¡æœ‰æ‰¾åˆ°åŒ¹é…çš„ç«™ç‚¹ã€‚" << endl;
 	}
 	else
 	{
-		bool exactMatch = false;  // ÅĞ¶ÏÊÇ·ñÓĞÍêÈ«Æ¥ÅäµÄÕ¾µã
+		bool exactMatch = false;  // åˆ¤æ–­æ˜¯å¦æœ‰å®Œå…¨åŒ¹é…çš„ç«™ç‚¹
 		for (const string& station : match_begin)
 		{
 			if (station == begin)
@@ -308,30 +308,30 @@ void Route_Straight()
 		if (!exactMatch)
 		{
 			cout << "--------------------------------" << endl;
-			cout << "Äú¿ÉÄÜÒªÑ¡ÔñµÄÊÇ£º" << endl;
+			cout << "æ‚¨å¯èƒ½è¦é€‰æ‹©çš„æ˜¯ï¼š" << endl;
 			for (const string& station : match_begin)
 			{
 				cout << station << endl;
 			}
 			cout << "--------------------------------" << endl;
-			cout << "ÇëÖØĞÂÊäÈë£º";
+			cout << "è¯·é‡æ–°è¾“å…¥ï¼š";
 			cin >> begin;
 		}
 	}
 	
-	// ÊäÈëÖÕµã
-	cout << "ÇëÊäÈëÖÕµãÕ¾£º";
+	// è¾“å…¥ç»ˆç‚¹
+	cout << "è¯·è¾“å…¥ç»ˆç‚¹ç«™ï¼š";
 	cin >> end;
 
-	// ×Ó´®Æ¥Åä
-	unordered_set<string> match_end = findMatchingStrings(end, "µØÌúĞÅÏ¢1.txt");
+	// å­ä¸²åŒ¹é…
+	unordered_set<string> match_end = findMatchingStrings(end, "åœ°é“ä¿¡æ¯1.txt");
 	if (match_end.empty())
 	{
-		cout << "Ã»ÓĞÕÒµ½Æ¥ÅäµÄÕ¾µã¡£" << endl;
+		cout << "æ²¡æœ‰æ‰¾åˆ°åŒ¹é…çš„ç«™ç‚¹ã€‚" << endl;
 	}
 	else
 	{
-		bool exactMatch = false;  // ÅĞ¶ÏÊÇ·ñÓĞÍêÈ«Æ¥ÅäµÄÕ¾µã
+		bool exactMatch = false;  // åˆ¤æ–­æ˜¯å¦æœ‰å®Œå…¨åŒ¹é…çš„ç«™ç‚¹
 		for (const string& station : match_end)
 		{
 			if (station == end)
@@ -344,13 +344,13 @@ void Route_Straight()
 		if (!exactMatch)
 		{
 			cout << "--------------------------------" << endl;
-			cout << "Äú¿ÉÄÜÒªÑ¡ÔñµÄÊÇ£º" << endl;
+			cout << "æ‚¨å¯èƒ½è¦é€‰æ‹©çš„æ˜¯ï¼š" << endl;
 			for (const string& station : match_end)
 			{
 				cout << station << endl;
 			}
 			cout << "--------------------------------" << endl;
-			cout << "ÇëÖØĞÂÊäÈë£º";
+			cout << "è¯·é‡æ–°è¾“å…¥ï¼š";
 			cin >> end;
 		}
 	}
@@ -359,7 +359,7 @@ void Route_Straight()
 	string lineName;
 	string site;
 	int i = 0;
-	// ¶ÁÈ¡µØÌúĞÅÏ¢ÎÄ¼ş£¬¹¹½¨ÏßÂ·ĞÅÏ¢µÄÊı¾İ½á¹¹
+	// è¯»å–åœ°é“ä¿¡æ¯æ–‡ä»¶ï¼Œæ„å»ºçº¿è·¯ä¿¡æ¯çš„æ•°æ®ç»“æ„
 	while (getline(infile, lineName))
 	{
 		for (; getline(infile, site) && !site.empty(); i++)
@@ -368,19 +368,19 @@ void Route_Straight()
 		}
 	}
 
-/* Ö±´ï */
-	// ¼ì²éÆğµãºÍÖÕµãÊÇ·ñÔÚÍ¬Ò»¸ösetÖĞ
+/* ç›´è¾¾ */
+	// æ£€æŸ¥èµ·ç‚¹å’Œç»ˆç‚¹æ˜¯å¦åœ¨åŒä¸€ä¸ªsetä¸­
 	bool straight = false;
-	vector<string> stationsBetween;  // ´æ´¢ÆğµãºÍÖÕµãÖ®¼äµÄËùÓĞÕ¾µã
-	string curLine;	// µ±Ç°ÏßÂ·Ãû³Æ
+	vector<string> stationsBetween;  // å­˜å‚¨èµ·ç‚¹å’Œç»ˆç‚¹ä¹‹é—´çš„æ‰€æœ‰ç«™ç‚¹
+	string curLine;	// å½“å‰çº¿è·¯åç§°
 	for (const auto& entry : line)
 	{
-		const string& lineName = entry.first;  // »ñÈ¡ÏßÂ·Ãû³Æ
+		const string& lineName = entry.first;  // è·å–çº¿è·¯åç§°
 		const set<pair<int, string>>& stations = entry.second;
-		int beginOrder = -1;  // ÆğµãµÄË³Ğò
-		int endOrder = -1;    // ÖÕµãµÄË³Ğò
+		int beginOrder = -1;  // èµ·ç‚¹çš„é¡ºåº
+		int endOrder = -1;    // ç»ˆç‚¹çš„é¡ºåº
 
-		// ±éÀúµ±Ç°ÏßÂ·µÄËùÓĞÕ¾µã£¬²¢¼ÇÂ¼ÆğµãºÍÖÕµãµÄË³Ğò
+		// éå†å½“å‰çº¿è·¯çš„æ‰€æœ‰ç«™ç‚¹ï¼Œå¹¶è®°å½•èµ·ç‚¹å’Œç»ˆç‚¹çš„é¡ºåº
 		for (const auto& station : stations)
 		{
 			if (station.second == begin)
@@ -392,7 +392,7 @@ void Route_Straight()
 				endOrder = station.first;
 			}
 
-			// Èç¹ûÆğµãºÍÖÕµãµÄË³Ğò¶¼ÒÑÕÒµ½£¬ÔòÌø³öÑ­»·
+			// å¦‚æœèµ·ç‚¹å’Œç»ˆç‚¹çš„é¡ºåºéƒ½å·²æ‰¾åˆ°ï¼Œåˆ™è·³å‡ºå¾ªç¯
 			if (beginOrder != -1 && endOrder != -1)
 			{
 				break;
@@ -402,9 +402,9 @@ void Route_Straight()
 		if (beginOrder != -1 && endOrder != -1)
 		{
 			straight = true;
-			curLine = lineName;  // ¼ÇÂ¼µ±Ç°ÏßÂ·Ãû³Æ
+			curLine = lineName;  // è®°å½•å½“å‰çº¿è·¯åç§°
 
-			// ¸ù¾İÆğµãºÍÖÕµãµÄË³Ğò£¬Ìí¼ÓÆğµãµ½ÖÕµãÖ®¼äµÄÕ¾µãµ½stationsBetweenÏòÁ¿ÖĞ
+			// æ ¹æ®èµ·ç‚¹å’Œç»ˆç‚¹çš„é¡ºåºï¼Œæ·»åŠ èµ·ç‚¹åˆ°ç»ˆç‚¹ä¹‹é—´çš„ç«™ç‚¹åˆ°stationsBetweenå‘é‡ä¸­
 			for (const auto& station : stations)
 			{
 				if (station.first > beginOrder && station.first < endOrder)
@@ -416,12 +416,12 @@ void Route_Straight()
 		}
 	}
 
-	// Êä³ö½á¹û
+	// è¾“å‡ºç»“æœ
 	if (straight)
 	{
 		int count = 1;
-		cout << "\n* Ö±´ï *" << endl;
-		cout << curLine << "£º" << endl;  // Êä³öµ±Ç°ÏßÂ·Ãû³Æ
+		cout << "\n* ç›´è¾¾ *" << endl;
+		cout << curLine << "ï¼š" << endl;  // è¾“å‡ºå½“å‰çº¿è·¯åç§°
 		cout << begin << "->";
 		for (const string& station : stationsBetween)
 		{
@@ -429,33 +429,33 @@ void Route_Straight()
 			++count;
 		}
 		cout << end << endl;
-		cout << "-- ¹² " << count << " Õ¾ --" << endl;
+		cout << "-- å…± " << count << " ç«™ --" << endl;
 	}
 	else
 	{
-		cout << "ÎŞÖ±´ïÂ·¾¶¡£" << endl;
+		cout << "æ— ç›´è¾¾è·¯å¾„ã€‚" << endl;
 	}
 
 	infile.close();
 
-/*Æ±¼Û£¨Ö±´ï£©*/
-	cout << "\nÆ±¼Û£º" << CalTicket(begin, end) << "Ôª" << endl;
+/*ç¥¨ä»·ï¼ˆç›´è¾¾ï¼‰*/
+	cout << "\nç¥¨ä»·ï¼š" << CalTicket(begin, end) << "å…ƒ" << endl;
 }
 
 void Menu()
 {
 	system("color 71");
 	cout << endl;
-	cout << "\t\t\t\t\t\t    »¶Ó­Ê¹ÓÃÄÏ¾©µØÌúÆ±ÎñÏµÍ³";
+	cout << "\t\t\t\t\t\t    æ¬¢è¿ä½¿ç”¨å—äº¬åœ°é“ç¥¨åŠ¡ç³»ç»Ÿ";
 	cout << endl;
 	cout << "\t\t\t\t\t\t--------------------------------";
 	cout << endl;
-	cout << "\t\t\t\t\t\tÇëÊäÈë£º" << endl;
-	cout << "\t\t\t\t\t\t        1   ÏßÂ·²éÑ¯" << endl;
-	cout << "\t\t\t\t\t\t        2   Õ¾µã²éÑ¯" << endl;
-	cout << "\t\t\t\t\t\t        3   Æ±Îñ²éÑ¯" << endl;
-	cout << "\t\t\t\t\t\t        4   ÍË³ö" << endl;
-	cout << "\n** ÇëÊäÈëÄúÏëÒªµÄ²Ù×÷±àºÅ£º";
+	cout << "\t\t\t\t\t\tè¯·è¾“å…¥ï¼š" << endl;
+	cout << "\t\t\t\t\t\t        1   çº¿è·¯æŸ¥è¯¢" << endl;
+	cout << "\t\t\t\t\t\t        2   ç«™ç‚¹æŸ¥è¯¢" << endl;
+	cout << "\t\t\t\t\t\t        3   ç¥¨åŠ¡æŸ¥è¯¢" << endl;
+	cout << "\t\t\t\t\t\t        4   é€€å‡º" << endl;
+	cout << "\n** è¯·è¾“å…¥æ‚¨æƒ³è¦çš„æ“ä½œç¼–å·ï¼š";
 }
 
 void Function(int opt)
@@ -465,26 +465,26 @@ void Function(int opt)
 	case 1:
 	{
 		cout << "------------------------------------------------------------------------------------" << endl;
-		cout << "ÏßÂ·£º" << endl;
-		cout << "1ºÅÏß\t2ºÅÏß\t3ºÅÏß\t4ºÅÏß\t10ºÅÏß\tS1Ïß\tS3Ïß\tS7Ïß\tS8Ïß\tS9Ïß\n";
+		cout << "çº¿è·¯ï¼š" << endl;
+		cout << "1å·çº¿\t2å·çº¿\t3å·çº¿\t4å·çº¿\t10å·çº¿\tS1çº¿\tS3çº¿\tS7çº¿\tS8çº¿\tS9çº¿\n";
 		cout << "------------------------------------------------------------------------------------" << endl;
-		cout << "ÇëÊäÈëÒª²éÑ¯µÄÏßÂ·£º";
+		cout << "è¯·è¾“å…¥è¦æŸ¥è¯¢çš„çº¿è·¯ï¼š";
 
 		string line_check;
 		cin >> line_check;
 		Line_Inquiry(line_check);
 
-		cout << "** ÇëÊäÈëÄúÏëÒªµÄ²Ù×÷±àºÅ£º";
+		cout << "** è¯·è¾“å…¥æ‚¨æƒ³è¦çš„æ“ä½œç¼–å·ï¼š";
 		int new_opt;
 		cin >> new_opt;
 		Function(new_opt);
 	}
 	case 2:
 	{
-		cout << "ÇëÊäÈëÒª²éÑ¯µÄÕ¾µã£º";
+		cout << "è¯·è¾“å…¥è¦æŸ¥è¯¢çš„ç«™ç‚¹ï¼š";
 		Site_Inquiry();
 
-		cout << "\n** ÇëÊäÈëÄúÏëÒªµÄ²Ù×÷±àºÅ£º";
+		cout << "\n** è¯·è¾“å…¥æ‚¨æƒ³è¦çš„æ“ä½œç¼–å·ï¼š";
 		int new_opt;
 		cin >> new_opt;
 		Function(new_opt);
@@ -493,20 +493,20 @@ void Function(int opt)
 	{
 		Route_Straight();
 
-		cout << "\n** ÇëÊäÈëÄúÏëÒªµÄ²Ù×÷±àºÅ£º";
+		cout << "\n** è¯·è¾“å…¥æ‚¨æƒ³è¦çš„æ“ä½œç¼–å·ï¼š";
 		int new_opt;
 		cin >> new_opt;
 		Function(new_opt);
 	}
 	case 4:
 	{
-		cout << "Ğ»Ğ»Ê¹ÓÃ£¡" << endl;
+		cout << "è°¢è°¢ä½¿ç”¨ï¼" << endl;
 		exit(0);
 		break;
 	}
 	default:
 	{
-		cout << "ÇëÖØĞÂÊäÈë£º";
+		cout << "è¯·é‡æ–°è¾“å…¥ï¼š";
 		int new_opt;
 		cin >> new_opt;
 		Function(new_opt);
