@@ -1,6 +1,7 @@
 # programming-fundamentals-labs
 Coursework projects for NJU Programming Fundamentals 程序设计基础实验  
 
+--
 # Project 1: Nanjing Railway Ticketing System
 
 This project is implemented in **C/C++**, simulating a railway/metro ticketing system for Nanjing.  
@@ -20,9 +21,8 @@ It provides basic line and station queries, as well as fare calculation.
 ---
 # Project 2: Chat System (WeChat-like Program)
 
-This project is implemented in **C/C++**, simulating a simplified **WeChat-like program**  
-with a console interface. It focuses on practicing **file I/O, string processing, and  
-basic data management**, rather than real-time network communication.
+This project is implemented in **C/C++**, simulating a simplified **WeChat-like program** with a console interface. 
+It focuses on practicing **file I/O, string processing, and basic data management**, rather than real-time network communication.
 
 ## Features
 - **User Registration & Login**  
