@@ -1,6 +1,21 @@
 # programming-fundamentals-labs
 Coursework projects for NJU Programming Fundamentals 程序设计基础实验  
 
+## Contents
+- Project 1: Nanjing Railway Ticketing System 南京地铁票务系统 
+- Project 2: Console-based Chat System (WeChat-like Program) 聊天模拟程序
+- Project 3: Complex Number Calculator 复数计算器
+- Project 4: Knowledge Quiz Mini Program 知识竞赛小程序
+
+## Documentation
+Each project includes not only the **C/C++ source code**, but also the corresponding:  
+- **Experiment Report (PDF)** – problem analysis, design process, implementation details, testing results  
+- **Design Document (PDF)** – program structure diagrams, module descriptions, workflow explanations  
+
+所有项目均包含 **源码** 与配套的 **实验报告 / 设计文档**，完整展示了从需求分析 → 程序设计 → 实现 → 测试的过程。  
+
+Reports and documents can be found in the `report/` folder of each project.
+
 ---
 # Project 1: Nanjing Railway Ticketing System
 
